@@ -44,12 +44,16 @@ function getTierBadgeStyle(tier = '') {
 
 async function loadDonations() {
   try {
-    const res = await fetch('/api/donations');
+    let res = await fetch('/api/donations');
+    if (!res.ok) res = await fetch('data/donations.json');
     if (res.ok) {
       donationsCache = await res.json();
     }
   } catch (e) {
-    console.error('Failed to load donations:', e);
+    try {
+      const res2 = await fetch('data/donations.json');
+      if (res2.ok) donationsCache = await res2.json();
+    } catch (e2) {}
   }
   renderDonationsWall();
   renderHomeSupportersGrid();
@@ -63,10 +67,17 @@ function renderDonationsWall() {
 
   if (!donationsCache || donationsCache.length === 0) {
     listEl.innerHTML = `
-      <div class="text-center py-8 bg-white rounded-2xl brutal-border p-4">
-        <p class="text-xs font-bold text-neutral-500">Belum ada struk penghargaan donatur. Jadilah supporter pertama!</p>
+      <div class="text-center py-8 bg-white rounded-2xl brutal-border p-5 space-y-2.5">
+        <div class="w-11 h-11 rounded-full bg-magenta-50 text-magenta brutal-border mx-auto flex items-center justify-center shadow-brutal-sm">
+          <i data-lucide="trophy" class="w-5 h-5"></i>
+        </div>
+        <h4 class="font-display font-black text-sm text-neutral-900">Belum Ada Supporter Terdaftar</h4>
+        <p class="text-xs font-semibold text-neutral-500 max-w-xs mx-auto leading-relaxed">
+          Jadilah supporter pertama lewat scan QRIS! Setiap donasi yang masuk akan diverifikasi Admin dan diterbitkan Struk Penghargaan Resmi di sini.
+        </p>
       </div>
     `;
+    if (window.lucide) lucide.createIcons({ root: listEl });
     return;
   }
 
@@ -110,8 +121,13 @@ function renderHomeSupportersGrid() {
 
   if (!donationsCache || donationsCache.length === 0) {
     grid.innerHTML = `
-      <div class="col-span-full text-center py-6 text-xs font-bold text-neutral-500">
-        Belum ada struk penghargaan yang dipajang.
+      <div class="col-span-full bg-white rounded-2xl brutal-border p-5 text-center flex flex-col items-center justify-center gap-2 shadow-brutal-sm">
+        <span class="bg-brutal-yellow text-neutral-900 brutal-border px-3 py-0.5 rounded-full text-[10px] font-black uppercase">
+          ✨ Menunggu Supporter Pertama
+        </span>
+        <p class="text-xs font-bold text-neutral-600 max-w-md">
+          Belum ada donatur di Papan Penghargaan. Dukung server WifeyPack lewat QRIS untuk mendapatkan Struk Penghargaan Resmi di beranda!
+        </p>
       </div>
     `;
     return;

@@ -39,14 +39,18 @@ function openCurrentAccountGallery() {
 }
 
 async function loadAccountPosts() {
-  try {
-    const url = `/api/posts?accountId=${encodeURIComponent(AppState.currentAccountId)}`;
-    const res = await fetch(url);
-    if (res.ok) {
-      AppState.posts = await res.json();
-    }
-  } catch (e) {
+  if (AppState.allPosts && AppState.allPosts.length > 0) {
     AppState.posts = AppState.allPosts.filter(p => p.accountId === AppState.currentAccountId);
+  } else {
+    try {
+      const url = `/api/posts?accountId=${encodeURIComponent(AppState.currentAccountId)}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        AppState.posts = await res.json();
+      }
+    } catch (e) {
+      AppState.posts = [];
+    }
   }
 
   // Sync persistent local likes & bookmarks
@@ -473,7 +477,7 @@ function createPostCardHtml(post) {
         <div id="carousel-wrapper-${post.id}" class="relative w-full aspect-[4/5] sm:aspect-square bg-neutral-900 overflow-hidden select-none cursor-pointer" ondblclick="triggerDoubleTapLike('${post.id}', event)">
           <div id="track-${post.id}" class="carousel-track w-full h-full" style="transform: translateX(-${currentIndex * 100}%);">
             ${photos.map((imgSrc, imgIdx) => {
-              const shouldLoadNow = imgIdx === currentIndex || imgIdx === currentIndex + 1;
+              const shouldLoadNow = imgIdx === currentIndex;
               return `
               <div class="w-full h-full flex-shrink-0 relative overflow-hidden bg-neutral-900 flex items-center justify-center" onclick="openLightbox('${post.id}', ${imgIdx})">
                 <img id="slide-img-${post.id}-${imgIdx}" src="${shouldLoadNow ? imgSrc : TRANSPARENT_PIXEL}" data-src="${imgSrc}" data-loaded="${shouldLoadNow ? '1' : '0'}" alt="Photopack Image ${imgIdx + 1}" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" onerror="this.src='photos/account_ziezie/avatar.jpg'">
@@ -622,8 +626,15 @@ function attachSwipeGesture(postId, totalPhotos) {
   let lastTapTime = 0;
   const minSwipeDistance = 35;
 
+  wrapper.addEventListener('mouseenter', () => {
+    const curr = AppState.carouselStates[postId] || 0;
+    if (curr + 1 < totalPhotos) ensureSlideImageLoaded(postId, curr + 1);
+  }, { passive: true, once: true });
+
   wrapper.addEventListener('touchstart', (e) => {
     if (e.touches.length !== 1) return;
+    const curr = AppState.carouselStates[postId] || 0;
+    if (curr + 1 < totalPhotos) ensureSlideImageLoaded(postId, curr + 1);
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     isDragging = true;

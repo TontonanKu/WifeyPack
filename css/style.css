@@ -5,7 +5,6 @@
    ======================================================== */
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -65,16 +64,21 @@ body {
 /* Carousel Track & Touch */
 .carousel-track {
   display: flex;
-  transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
-  transform: translateZ(0);
+  transition: transform 0.26s cubic-bezier(0.25, 1, 0.5, 1);
   user-select: none;
   touch-action: pan-y;
   -webkit-user-drag: none;
 }
 
+.post-card-item:hover .carousel-track,
+.post-card-item:active .carousel-track {
+  will-change: transform;
+}
+
 .post-card-item {
-  contain: layout paint;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+  contain: layout style paint;
 }
 
 /* Scrollbars */

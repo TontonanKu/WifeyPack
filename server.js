@@ -6,13 +6,32 @@ const { execFileSync } = require('child_process');
 let convertHeic = null;
 try { convertHeic = require('heic-convert'); } catch (e) {}
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = __dirname;
 const DATA_DIR = path.join(__dirname, 'data');
 
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
+try {
+  if (!process.env.VERCEL && !fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+} catch (e) {}
+
+// Explicit static hints for Vercel Node File Tracer (NFT) so all templates & JSON files are bundled in /var/task
+const VERCEL_BUNDLED_DATA = {
+  'accounts.json': () => require('./data/accounts.json'),
+  'posts.json': () => require('./data/posts.json'),
+  'donations.json': () => require('./data/donations.json'),
+  'requests.json': () => require('./data/requests.json')
+};
+const VERCEL_BUNDLED_TPLS = [
+  path.join(__dirname, 'index.html'),
+  path.join(__dirname, 'components/navbar.html'),
+  path.join(__dirname, 'components/home-directory.html'),
+  path.join(__dirname, 'components/gallery-view.html'),
+  path.join(__dirname, 'components/footer.html'),
+  path.join(__dirname, 'components/modals.html'),
+  path.join(__dirname, 'components/mobile-nav.html')
+];
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -34,15 +53,25 @@ function readJsonFile(filename, defaultValue = []) {
     if (fs.existsSync(filePath)) {
       return JSON.parse(fs.readFileSync(filePath, 'utf8'));
     }
+    if (VERCEL_BUNDLED_DATA[filename]) {
+      return VERCEL_BUNDLED_DATA[filename]();
+    }
   } catch (e) {
     console.error(`Error reading ${filename}:`, e.message);
+    try {
+      if (VERCEL_BUNDLED_DATA[filename]) return VERCEL_BUNDLED_DATA[filename]();
+    } catch (e2) {}
   }
   return defaultValue;
 }
 
 function writeJsonFile(filename, data) {
-  const filePath = path.join(DATA_DIR, filename);
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+  try {
+    const filePath = path.join(DATA_DIR, filename);
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+  } catch (e) {
+    console.warn(`Write skipped on serverless/read-only filesystem for ${filename}`);
+  }
 }
 
 // Server-Side Component Template Engine (Full-stack SSR Component Compiler)
@@ -1039,6 +1068,10 @@ const server = http.createServer(async (req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server Photopack aktif di http://localhost:${PORT}`);
-});
+if (!process.env.VERCEL) {
+  server.listen(PORT, () => {
+    console.log(`Server Photopack aktif di http://localhost:${PORT}`);
+  });
+}
+
+module.exports = server;

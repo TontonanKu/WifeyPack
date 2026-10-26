@@ -64,12 +64,16 @@ async function resolveClientComponents() {
 
 async function loadAccounts() {
   try {
-    const res = await fetch('/api/accounts');
+    let res = await fetch('/api/accounts');
+    if (!res.ok) res = await fetch('data/accounts.json');
     if (res.ok) {
       AppState.accounts = await res.json();
     }
   } catch (e) {
-    console.warn('Gagal load accounts dari API', e);
+    try {
+      const res2 = await fetch('data/accounts.json');
+      if (res2.ok) AppState.accounts = await res2.json();
+    } catch (e2) {}
   }
 
   if (!AppState.accounts || AppState.accounts.length === 0) {
@@ -115,12 +119,18 @@ async function loadAccounts() {
 
 async function loadAllPosts() {
   try {
-    const res = await fetch('/api/posts');
+    let res = await fetch('/api/posts');
+    if (!res.ok) res = await fetch('data/posts.json');
     if (res.ok) {
       AppState.allPosts = await res.json();
     }
   } catch (e) {
-    AppState.allPosts = [];
+    try {
+      const res2 = await fetch('data/posts.json');
+      if (res2.ok) AppState.allPosts = await res2.json();
+    } catch (e2) {
+      AppState.allPosts = [];
+    }
   }
 
   renderAccountsDirectory();
