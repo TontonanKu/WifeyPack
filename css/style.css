@@ -4,7 +4,11 @@
    Fully Responsive for All Devices (Mobile, Tablet, Desktop)
    ======================================================== */
 
-html {
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100%;
+  position: relative;
   -webkit-text-size-adjust: 100%;
 }
 

@@ -10,7 +10,7 @@ const i18n = {
     navGallery: "Galeri Foto",
     navFavorites: "Favorit",
     navShare: "Bagikan",
-    navDonate: "Dukung / Donasi ☕",
+    navDonate: "Dukung",
     homeBadge: "DIREKTORI RESMI",
     homeTitle: "Koleksi Photopack My Wife ❤️",
     homeDesc: "Pilih salah satu akun di bawah ini untuk membuka dan melihat seluruh foto photopack-nya secara lengkap!",
@@ -83,7 +83,7 @@ const i18n = {
     countryAll: "Semua",
     countryCN: "China",
     countryKR: "Korea",
-    navRequest: "Request & Lapor",
+    navRequest: "Request",
     // Donate Modal
     donateTitle: "Dukung Galeri Photopack ☕",
     donateSubtitle: "Donasi via QRIS Standar Nasional",
