@@ -208,7 +208,7 @@ function renderAccountsDirectory() {
               <div class="grid grid-cols-4 gap-1.5 sm:gap-2">
                 ${previewPhotos.length > 0 ? previewPhotos.map(img => `
                   <div onclick="openAccountGallery('${acc.id}')" class="aspect-[4/5] rounded-lg brutal-border overflow-hidden bg-neutral-200 cursor-pointer group/img">
-                    <img src="${img}" class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200" loading="lazy" decoding="async" onerror="this.src='photos/account_ziezie/avatar.jpg'">
+                    <img src="${img.includes('?') ? img : img + '?v=2'}" class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-200" loading="lazy" decoding="async" onerror="this.src='photos/account_ziezie/avatar.jpg'">
                   </div>
                 `).join('') : `
                   <div class="col-span-4 text-center py-4 text-xs font-bold text-neutral-400">Belum ada foto</div>

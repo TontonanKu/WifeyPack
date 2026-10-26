@@ -478,9 +478,10 @@ function createPostCardHtml(post) {
           <div id="track-${post.id}" class="carousel-track w-full h-full" style="transform: translateX(-${currentIndex * 100}%);">
             ${photos.map((imgSrc, imgIdx) => {
               const shouldLoadNow = imgIdx === currentIndex;
+              const vSrc = imgSrc.includes('?') ? imgSrc : `${imgSrc}?v=2`;
               return `
               <div class="w-full h-full flex-shrink-0 relative overflow-hidden bg-neutral-900 flex items-center justify-center" onclick="openLightbox('${post.id}', ${imgIdx})">
-                <img id="slide-img-${post.id}-${imgIdx}" src="${shouldLoadNow ? imgSrc : TRANSPARENT_PIXEL}" data-src="${imgSrc}" data-loaded="${shouldLoadNow ? '1' : '0'}" alt="Photopack Image ${imgIdx + 1}" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" onerror="this.src='photos/account_ziezie/avatar.jpg'">
+                <img id="slide-img-${post.id}-${imgIdx}" src="${shouldLoadNow ? vSrc : TRANSPARENT_PIXEL}" data-src="${vSrc}" data-loaded="${shouldLoadNow ? '1' : '0'}" alt="Photopack Image ${imgIdx + 1}" class="w-full h-full object-cover pointer-events-none" loading="lazy" decoding="async" onerror="this.src='photos/account_ziezie/avatar.jpg'">
               </div>
             `;
             }).join('')}
