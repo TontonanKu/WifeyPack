@@ -406,19 +406,6 @@ function createPostCardHtml(post) {
   const hasMultiplePhotos = photos.length > 1;
   const currentIndex = AppState.carouselStates[post.id] || 0;
 
-  let dotsHtml = '';
-  if (hasMultiplePhotos) {
-    // Hide dots on narrow mobile if > 7 photos so they never overflow 2-col card; counter badge is always visible
-    const hideMobileClass = photos.length > 7 ? 'hidden sm:flex' : 'flex';
-    dotsHtml = `
-      <div class="absolute bottom-2.5 left-1/2 -translate-x-1/2 z-20 ${hideMobileClass} items-center gap-1 sm:gap-1.5 bg-neutral-900/80 px-2 py-1 rounded-full brutal-border max-w-[90%] overflow-hidden">
-        ${photos.map((_, i) => `
-          <span id="dot-${post.id}-${i}" class="transition-all duration-200 rounded-full flex-shrink-0 ${i === currentIndex ? 'w-3.5 h-1.5 sm:w-4 sm:h-2 bg-magenta' : 'w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/75'}"></span>
-        `).join('')}
-      </div>
-    `;
-  }
-
   let arrowButtonsHtml = '';
   if (hasMultiplePhotos) {
     arrowButtonsHtml = `
@@ -493,7 +480,6 @@ function createPostCardHtml(post) {
 
           ${counterBadgeHtml}
           ${arrowButtonsHtml}
-          ${dotsHtml}
 
           ${!hasMultiplePhotos ? `
             <div class="absolute top-2 right-2 sm:top-3 sm:right-3 z-20 bg-white/95 text-neutral-900 px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-full brutal-border text-[8px] sm:text-[9px] font-black shadow-brutal-sm flex items-center gap-1">
@@ -595,15 +581,6 @@ function updateCarouselDOM(postId, index, total) {
 
   const counter = document.getElementById(`counter-${postId}`);
   if (counter) counter.textContent = `${index + 1}/${total}`;
-
-  for (let i = 0; i < total; i++) {
-    const dot = document.getElementById(`dot-${postId}-${i}`);
-    if (dot) {
-      dot.className = i === index 
-        ? 'transition-all duration-200 rounded-full flex-shrink-0 w-3.5 h-1.5 sm:w-4 sm:h-2 bg-magenta' 
-        : 'transition-all duration-200 rounded-full flex-shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/75';
-    }
-  }
 
   const prevBtn = document.getElementById(`prev-btn-${postId}`);
   const nextBtn = document.getElementById(`next-btn-${postId}`);
