@@ -1,0 +1,62 @@
+<!-- TOP RUNNING TICKER / MARQUEE -->
+<div class="bg-magenta text-white border-b-2 border-neutral-900 py-1.5 overflow-hidden z-30 font-display text-xs tracking-wider uppercase font-bold">
+  <div class="animate-marquee flex items-center gap-8 whitespace-nowrap">
+    <span>✨ EXCLUSIVE MY WIFE PHOTOPACK GALLERY</span>
+    <span>•</span>
+    <span>💖 MULTI-ACCOUNT DIRECTORY & NO WATERMARK HD</span>
+    <span>•</span>
+    <span>📸 SWIPEABLE INSTAGRAM CAROUSEL (1, 2 & 3 KOLOM)</span>
+    <span>•</span>
+    <span>🎀 DAILY UPDATED SPECIAL MOMENTS</span>
+    <span>•</span>
+    <span>👑 100% PURE CUTENESS GUARANTEED</span>
+    <span>•</span>
+    <span>✨ EXCLUSIVE MY WIFE PHOTOPACK GALLERY</span>
+    <span>•</span>
+    <span>💖 MULTI-ACCOUNT DIRECTORY & NO WATERMARK HD</span>
+  </div>
+</div>
+
+<!-- CLEAN & SPACIOUS NAVIGATION BAR -->
+<header class="sticky top-0 z-40 bg-white border-b-[2.5px] border-neutral-900 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
+  <div class="max-w-6xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+    
+    <!-- Left: Brand Logo -->
+    <a href="javascript:void(0)" onclick="backToHomeDirectory()" class="flex items-center gap-2 sm:gap-2.5 group flex-shrink-0 min-w-0" title="Kembali ke Beranda">
+      <div class="w-8 h-8 sm:w-10 sm:h-10 bg-magenta rounded-xl brutal-border flex items-center justify-center text-white shadow-brutal-sm group-hover:rotate-6 transition-transform flex-shrink-0">
+        <i data-lucide="crown" class="w-4 h-4 sm:w-5 sm:h-5 fill-white"></i>
+      </div>
+      <div class="flex flex-col min-w-0">
+        <div class="font-display font-extrabold text-base sm:text-xl tracking-tight leading-none flex items-center">
+          <span>WIFEY</span>
+          <span class="text-magenta ml-1">PACK</span>
+        </div>
+        <span class="text-[8px] sm:text-[10px] font-bold text-neutral-500 uppercase tracking-widest mt-0.5 truncate">Official Vault</span>
+      </div>
+    </a>
+
+    <!-- Center: Pill Navigation Bar (Desktop) -->
+    <nav class="hidden md:flex items-center bg-neutral-100 brutal-border rounded-full p-1 gap-1 shadow-brutal-sm">
+      <button id="nav-btn-home" onclick="backToHomeDirectory()" class="px-4 py-1.5 rounded-full font-bold text-xs sm:text-sm bg-magenta text-white brutal-border shadow-brutal-sm transition-all flex items-center gap-1.5 cursor-pointer">
+        <i data-lucide="home" class="w-3.5 h-3.5"></i>
+        <span>Daftar Akun</span>
+      </button>
+      <button id="nav-btn-gallery" onclick="openCurrentAccountGallery()" class="px-4 py-1.5 rounded-full font-bold text-xs sm:text-sm text-neutral-700 hover:text-magenta transition-colors flex items-center gap-1.5 cursor-pointer">
+        <i data-lucide="images" class="w-3.5 h-3.5"></i>
+        <span id="nav-gallery-label">Galeri Foto</span>
+      </button>
+    </nav>
+
+    <!-- Right: Clean Action Group (Responsive on Mobile & Desktop) -->
+    <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+      <button onclick="RequestsModule.openModal('list')" class="brutal-btn bg-white hover:bg-magenta-50 text-neutral-900 px-2.5 sm:px-3.5 py-1.5 rounded-xl brutal-border font-bold text-[11px] sm:text-xs shadow-brutal-sm flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer" title="Request Akun Baru & Lapor Kendala">
+        <i data-lucide="clipboard-pen" class="w-3.5 h-3.5 text-magenta flex-shrink-0"></i>
+        <span id="nav-request-label">Request</span>
+      </button>
+      <button onclick="openDonateModal()" class="brutal-btn bg-brutal-yellow hover:bg-yellow-300 text-neutral-900 px-2.5 sm:px-3.5 py-1.5 rounded-xl brutal-border font-black text-[11px] sm:text-xs shadow-brutal-sm flex items-center gap-1 sm:gap-1.5 transition-all group cursor-pointer" title="Dukung / Donasi QRIS">
+        <i data-lucide="coffee" class="w-3.5 h-3.5 text-magenta group-hover:scale-110 transition-transform flex-shrink-0"></i>
+        <span id="nav-btn-donate-text">Dukung</span>
+      </button>
+    </div>
+  </div>
+</header>

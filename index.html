@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wife Photopack Gallery | Official Multi-Account Vault</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            magenta: {
+              50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f472b6',
+              400: '#e81e8c', 500: '#d8006f', 600: '#c20063', 700: '#9d0050',
+              DEFAULT: '#e6007e', neon: '#ff007f', dark: '#850047',
+            },
+            brutal: {
+              black: '#121214', bg: '#fcf8fa', card: '#ffffff',
+              yellow: '#fff066', cyan: '#6ee7b7',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          boxShadow: {
+            'brutal-sm': '2px 2px 0px #121214',
+            'brutal': '4px 4px 0px #121214',
+            'brutal-lg': '6px 6px 0px #121214',
+            'brutal-xl': '8px 8px 0px #121214',
+            'brutal-hover': '1px 1px 0px #121214',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons & Confetti -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Modular Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=20261026b">
+</head>
+<body class="min-h-screen flex flex-col font-sans text-neutral-900 selection:bg-magenta selection:text-white">
+
+  <!-- ==================== MODULAR FULL-STACK COMPONENTS ==================== -->
+  
+  <!-- 1. Header & Navigation Bar Component -->
+  <!-- @include "components/navbar.html" -->
+
+  <!-- 2. Home Directory View Component -->
+  <!-- @include "components/home-directory.html" -->
+
+  <!-- 3. Account Gallery View Component -->
+  <!-- @include "components/gallery-view.html" -->
+
+  <!-- 4. Modular Footer Component -->
+  <!-- @include "components/footer.html" -->
+
+  <!-- 5. All Modals Component (Lightbox, Donate, Requests, TikTok, Admin) -->
+  <!-- @include "components/modals.html" -->
+
+  <!-- 6. Floating Mobile Bottom Navigation Bar -->
+  <!-- @include "components/mobile-nav.html" -->
+
+  <!-- System Toast Notification (Elevated on mobile to clear bottom nav) -->
+  <div id="toast" class="fixed bottom-20 md:bottom-6 left-1/2 -translate-x-1/2 z-50 bg-neutral-900 text-white px-4 py-2.5 rounded-full brutal-border shadow-brutal flex items-center gap-2 text-xs font-bold transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-message">Pesan notifikasi</span>
+  </div>
+
+  <!-- Modular Frontend Scripts -->
+  <script src="js/state.js?v=20261026d"></script>
+  <script src="js/i18n.js?v=20261026d"></script>
+  <script src="js/modals.js?v=20261026d"></script>
+  <script src="js/directory.js?v=20261026d"></script>
+  <script src="js/gallery.js?v=20261026d"></script>
+  <script src="js/requests.js?v=20261026d"></script>
+  <script src="js/app.js?v=20261026d"></script>
+</body>
+</html>

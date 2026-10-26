@@ -1,0 +1,151 @@
+<!-- ==================== RICH FOOTER ==================== -->
+<footer class="bg-white brutal-border-3 border-x-0 border-b-0 mt-auto pt-10 pb-8 px-4 sm:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col gap-8">
+    
+    <!-- Top Grid: Brand & Description | Pages | Content Source & Language Selector -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left: Brand + Description + Tags (Col 5) -->
+      <div class="md:col-span-5 space-y-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 bg-magenta rounded-xl brutal-border flex items-center justify-center text-white shadow-brutal-sm">
+            <i data-lucide="crown" class="w-5 h-5 fill-white"></i>
+          </div>
+          <div class="font-display font-extrabold text-xl tracking-tight leading-none">
+            <span>WIFEY</span>
+            <span class="text-magenta ml-1">PACK</span>
+          </div>
+        </div>
+        
+        <p id="i18n-footer-desc" class="text-xs sm:text-sm font-semibold text-neutral-600 leading-relaxed max-w-sm">
+          Arsip photopack resmi & galeri foto berkualitas tinggi tanpa watermark untuk muse tersayang. 100% master image asli Rednote.
+        </p>
+
+        <!-- Neo-Brutalist Badges / Pills -->
+        <div class="flex items-center gap-2 flex-wrap pt-1">
+          <span class="bg-magenta text-white px-3 py-1 rounded-full text-[11px] font-black brutal-border shadow-brutal-sm">
+            100% HD Raw
+          </span>
+          <span class="bg-brutal-yellow text-neutral-900 px-3 py-1 rounded-full text-[11px] font-black brutal-border shadow-brutal-sm">
+            No Watermark
+          </span>
+          <span class="bg-neutral-100 text-neutral-800 px-3 py-1 rounded-full text-[11px] font-black brutal-border shadow-brutal-sm">
+            Rednote Vault
+          </span>
+        </div>
+      </div>
+
+      <!-- Middle: Pages / Links (Col 3) -->
+      <div class="md:col-span-3 space-y-3">
+        <span id="i18n-footer-pages-title" class="block font-display font-black text-xs uppercase tracking-wider text-neutral-900">
+          PAGES / HALAMAN
+        </span>
+        <ul class="space-y-2 text-xs font-bold text-neutral-600">
+          <li>
+            <a href="javascript:void(0)" onclick="backToHomeDirectory()" id="i18n-footer-link-home" class="hover:text-magenta transition-colors flex items-center gap-1.5">
+              <i data-lucide="home" class="w-3.5 h-3.5 text-magenta"></i>
+              <span>Beranda & Daftar Akun</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" onclick="openCurrentAccountGallery()" id="i18n-footer-link-gallery" class="hover:text-magenta transition-colors flex items-center gap-1.5">
+              <i data-lucide="images" class="w-3.5 h-3.5 text-magenta"></i>
+              <span>Galeri Foto Photopack</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" onclick="filterByFavorites()" id="i18n-footer-link-fav" class="hover:text-magenta transition-colors flex items-center gap-1.5">
+              <i data-lucide="heart" class="w-3.5 h-3.5 text-magenta"></i>
+              <span>Koleksi Favorit</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" onclick="RequestsModule.openModal('list')" class="hover:text-magenta transition-colors flex items-center gap-1.5 cursor-pointer">
+              <i data-lucide="clipboard-pen" class="w-3.5 h-3.5 text-magenta"></i>
+              <span>Request & Laporan Akun</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.tiktok.com/@rektrwefcl8" target="_blank" rel="noopener noreferrer" class="hover:text-magenta transition-colors flex items-center gap-1.5 cursor-pointer text-left">
+              <img src="photos/tiktok_icon.png" alt="TikTok" class="w-3.5 h-3.5 rounded-xs object-contain">
+              <span>TikTok: @rektrwefcl8 ↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Source + Language Switcher (Col 4) -->
+      <div class="md:col-span-4 space-y-3.5">
+        <span id="i18n-footer-info-title" class="block font-display font-black text-xs uppercase tracking-wider text-neutral-900">
+          SUMBER & BAHASA
+        </span>
+        
+        <div class="flex items-center gap-2">
+          <span class="bg-red-50 text-red-600 brutal-border px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1.5 shadow-brutal-sm">
+            <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+            <span>Xiaohongshu / Rednote Master</span>
+          </span>
+        </div>
+
+        <!-- Language Switcher Section (Compact 2 Rows: Indo, English / China, Korea) -->
+        <div class="space-y-1.5 pt-1">
+          <div class="flex items-center gap-1.5 text-xs font-black text-neutral-700">
+            <i data-lucide="globe" class="w-3.5 h-3.5 text-magenta"></i>
+            <span id="i18n-footer-lang-label">LANGUAGE / BAHASA:</span>
+          </div>
+
+          <!-- Language Buttons: 2 Baris Kompak -->
+          <div class="inline-flex flex-col bg-white brutal-border rounded-2xl p-1.5 shadow-brutal gap-1.5 w-full max-w-[270px]">
+            <!-- Baris 1: Indonesia & English -->
+            <div class="flex items-center gap-1.5">
+              <button onclick="setLanguage('id')" id="lang-btn-id" class="flex-1 px-3 py-1.5 rounded-xl text-xs font-black bg-magenta text-white brutal-border shadow-brutal-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <span class="w-4 h-3 inline-block rounded-[2px] overflow-hidden border border-neutral-300 shadow-2xs flex-shrink-0 align-middle">
+                  <svg class="w-full h-full block" viewBox="0 0 640 480"><path fill="#e70011" d="M0 0h640v240H0z"/><path fill="#fff" d="M0 240h640v240H0z"/></svg>
+                </span>
+                <span>Indonesia</span>
+              </button>
+              <button onclick="setLanguage('en')" id="lang-btn-en" class="flex-1 px-3 py-1.5 rounded-xl text-xs font-bold text-neutral-700 hover:text-magenta transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <span class="w-4 h-3 inline-block rounded-[2px] overflow-hidden border border-neutral-300 shadow-2xs flex-shrink-0 align-middle">
+                  <svg class="w-full h-full block" viewBox="0 0 640 480"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#fff" d="m75 0 245 180L565 0h75v60L435 240l205 180v60h-75L320 300 75 480H0v-60l205-180L0 60V0z"/><path fill="#C8102E" d="m425 240 215 160v80l-280-210zm-210 0L0 80V0l280 210zm0 0L0 400v80l280-210zm210 0 215-160V0l-280 210z"/><path fill="#fff" d="M260 0h120v480H260zM0 180h640v120H0z"/><path fill="#C8102E" d="M280 0h80v480h-80zM0 200h640v80H0z"/></svg>
+                </span>
+                <span>English</span>
+              </button>
+            </div>
+            <!-- Baris 2: China & Korea -->
+            <div class="flex items-center gap-1.5">
+              <button onclick="setLanguage('zh')" id="lang-btn-zh" class="flex-1 px-3 py-1.5 rounded-xl text-xs font-bold text-neutral-700 hover:text-magenta transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <span class="w-4 h-3 inline-block rounded-[2px] overflow-hidden border border-neutral-300 shadow-2xs flex-shrink-0 align-middle">
+                  <svg class="w-full h-full block" viewBox="0 0 640 480"><path fill="#de2910" d="M0 0h640v480H0z"/><polygon fill="#ffde00" points="120,48 132,84 170,84 140,106 152,142 120,120 88,142 100,106 70,84 108,84"/><polygon fill="#ffde00" points="192,60 198,78 216,78 201,89 207,107 192,96 177,107 183,89 168,78 186,78"/><polygon fill="#ffde00" points="228,96 234,114 252,114 237,125 243,143 228,132 213,143 219,125 204,114 222,114"/><polygon fill="#ffde00" points="228,144 234,162 252,162 237,173 243,191 228,180 213,191 219,173 204,162 222,162"/><polygon fill="#ffde00" points="192,180 198,198 216,198 201,209 207,227 192,216 177,227 183,209 168,198 186,198"/></svg>
+                </span>
+                <span>中文</span>
+              </button>
+              <button onclick="setLanguage('ko')" id="lang-btn-ko" class="flex-1 px-3 py-1.5 rounded-xl text-xs font-bold text-neutral-700 hover:text-magenta transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+                <span class="w-4 h-3 inline-block rounded-[2px] overflow-hidden border border-neutral-300 shadow-2xs flex-shrink-0 align-middle">
+                  <svg class="w-full h-full block" viewBox="0 0 640 480"><path fill="#fff" d="M0 0h640v480H0z"/><path fill="#cd2e3a" d="M320 120a120 120 0 0 1 0 240 60 60 0 0 1 0-120 60 60 0 0 0 0-120z"/><path fill="#0047a0" d="M320 360a120 120 0 0 1 0-240 60 60 0 0 1 0 120 60 60 0 0 0 0 120z"/><circle cx="320" cy="180" r="60" fill="#cd2e3a"/><circle cx="320" cy="300" r="60" fill="#0047a0"/><g stroke="#000" stroke-width="12" stroke-linecap="round"><path d="M160 120l40 40M175 105l40 40M145 135l40 40M440 320l40 40M455 305l40 40M425 335l40 40M160 360l40-40M175 375l40-40M145 345l40-40M440 160l40-40M455 175l40-40M425 145l40-40"/></g></svg>
+                </span>
+                <span>한국어</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar: Copyright & Subtext -->
+    <div class="pt-6 border-t-2 border-neutral-900 border-dashed flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-bold text-neutral-600">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span>© 2026 WifeyPack. All rights reserved.</span>
+        <span>•</span>
+        <a href="https://www.tiktok.com/@rektrwefcl8" target="_blank" rel="noopener noreferrer" class="hover:text-magenta transition-colors flex items-center gap-1.5 font-bold text-neutral-900 cursor-pointer">
+          <img src="photos/tiktok_icon.png" alt="TikTok" class="w-3.5 h-3.5 rounded-xs object-contain">
+          <span>TikTok: <strong>@rektrwefcl8 ↗</strong></span>
+        </a>
+      </div>
+      <div class="flex items-center gap-2 text-neutral-500">
+        <span id="i18n-footer-bottom-tag">Official Aesthetic Photopack Vault • Read-Only Protected</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

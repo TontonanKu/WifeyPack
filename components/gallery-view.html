@@ -1,0 +1,215 @@
+<!-- ======================================================== -->
+<!-- VIEW 2: ACCOUNT GALLERY VIEW (DETAIL GALERI FOTO AKUN) -->
+<!-- ======================================================== -->
+<div id="view-account-gallery" class="w-full flex-1 flex flex-col hidden">
+  <!-- Back to Accounts Navigation Button Bar -->
+  <div class="max-w-6xl mx-auto w-full px-4 pt-4 pb-1">
+    <button onclick="backToHomeDirectory()" class="brutal-btn bg-white hover:bg-magenta hover:text-white px-4 py-2 rounded-xl brutal-border font-black text-xs shadow-brutal flex items-center gap-2 transition-all cursor-pointer group">
+      <i data-lucide="arrow-left" class="w-4 h-4 text-magenta group-hover:text-white"></i>
+      <span id="btn-back-accounts-text">Kembali ke Daftar Semua Akun</span>
+    </button>
+  </div>
+
+  <!-- PROFILE BANNER CARD -->
+  <section class="max-w-6xl mx-auto w-full px-4 pt-3 pb-2">
+    <div class="bg-white brutal-border-3 rounded-2xl shadow-brutal-lg overflow-hidden relative">
+      <!-- Magenta Banner Header with Badges -->
+      <div class="h-32 sm:h-36 bg-gradient-to-r from-magenta via-[#ff2a85] to-magenta-dark brutal-border border-x-0 border-t-0 relative overflow-hidden flex items-end justify-end p-4 pb-3 sm:pb-3.5">
+        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#fff 1.5px, transparent 1.5px); background-size: 14px 14px;"></div>
+        
+        <div class="hidden sm:flex items-center gap-2 z-10">
+          <span class="bg-white text-neutral-900 brutal-border px-3 py-1.5 rounded-full text-xs font-black shadow-brutal-sm uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> NO WATERMARK • 100% HD
+          </span>
+          <span id="profile-banner-vault-badge" class="bg-brutal-yellow text-neutral-900 brutal-border px-3 py-1.5 rounded-full text-xs font-black shadow-brutal-sm uppercase tracking-wider flex items-center gap-1">
+            ★ OFFICIAL VAULT
+          </span>
+        </div>
+      </div>
+
+      <!-- Profile Information Body -->
+      <div class="px-4 sm:px-8 pb-5 sm:pb-6 pt-0 relative">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-3.5 sm:gap-4 -mt-10 sm:-mt-14 mb-4">
+          <!-- Avatar with thick outline -->
+          <div class="flex items-end gap-3 sm:gap-4 min-w-0">
+            <div class="relative group flex-shrink-0">
+              <div class="w-20 h-20 sm:w-28 sm:h-28 rounded-2xl bg-white p-1 brutal-border-3 shadow-brutal overflow-hidden">
+                <img id="profile-avatar" src="photos/account_ziezie/avatar.jpg" alt="Avatar" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform" decoding="async">
+              </div>
+              <span class="absolute -bottom-1.5 -right-1.5 bg-magenta text-white p-1 sm:p-1.5 rounded-xl brutal-border shadow-brutal-sm" title="Love badge">
+                <i data-lucide="heart" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white"></i>
+              </span>
+            </div>
+
+            <!-- Name and verified handle -->
+            <div class="pb-0.5 min-w-0 flex-1">
+              <div class="flex items-center gap-1.5">
+                <h1 id="profile-display-name" class="font-display font-extrabold text-lg sm:text-2xl lg:text-3xl text-neutral-900 tracking-tight truncate">
+                  芝士小年糕吗 ❤️
+                </h1>
+              </div>
+              <div class="flex items-center gap-1.5 sm:gap-2 mt-1.5 text-[10px] sm:text-xs font-bold text-neutral-600 flex-wrap">
+                <span id="profile-official-tag" class="bg-magenta-100 text-magenta brutal-border px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-brutal-sm flex items-center gap-1 flex-shrink-0">
+                  <i data-lucide="sparkles" class="w-3 h-3"></i> OFFICIAL
+                </span>
+                <span id="profile-country-badge" class="bg-rose-100 text-rose-900 brutal-border px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-brutal-sm inline-flex items-center gap-1 flex-shrink-0">
+                  <span class="w-3.5 h-2.5 inline-block rounded-[2px] overflow-hidden border border-neutral-300 flex-shrink-0 align-middle">
+                    <svg class="w-full h-full block" viewBox="0 0 640 480"><path fill="#de2910" d="M0 0h640v480H0z"/><polygon fill="#ffde00" points="120,48 132,84 170,84 140,106 152,142 120,120 88,142 100,106 70,84 108,84"/><polygon fill="#ffde00" points="192,60 198,78 216,78 201,89 207,107 192,96 177,107 183,89 168,78 186,78"/><polygon fill="#ffde00" points="228,96 234,114 252,114 237,125 243,143 228,132 213,143 219,125 204,114 222,114"/><polygon fill="#ffde00" points="228,144 234,162 252,162 237,173 243,191 228,180 213,191 219,173 204,162 222,162"/><polygon fill="#ffde00" points="192,180 198,198 216,198 201,209 207,227 192,216 177,227 183,209 168,198 186,198"/></svg>
+                  </span>
+                  <span>CHINA</span>
+                </span>
+                <span id="profile-ip-badge" class="bg-neutral-100 text-neutral-800 brutal-border px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-brutal-sm inline-flex items-center gap-1 flex-shrink-0">
+                  📍 浙江
+                </span>
+                <span id="profile-redid-badge" class="bg-neutral-900 text-white brutal-border px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-black shadow-brutal-sm inline-flex items-center gap-1 flex-shrink-0">
+                  ID: 420458971
+                </span>
+                <span id="profile-username" class="text-magenta font-extrabold">@ziezie</span>
+                <span class="flex items-center gap-1 text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded-md brutal-border text-[10px] sm:text-xs">
+                  <i data-lucide="clock" class="w-3 h-3 text-magenta"></i> <span id="profile-update-label">Update:</span> <strong id="global-last-update-text">Terbaru</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Public Action Buttons: Follow, Share, External Platform Link -->
+          <div class="grid grid-cols-3 sm:flex items-center gap-1.5 sm:gap-2 flex-shrink-0 z-20 w-full sm:w-auto self-start lg:self-end pb-1 pt-1 lg:pt-0">
+            <button id="btn-follow-account" onclick="toggleFollowAccount()" class="brutal-btn justify-center whitespace-nowrap bg-magenta hover:bg-magenta-600 text-white px-2.5 sm:px-4 py-2 rounded-xl brutal-border font-black text-[11px] sm:text-xs shadow-brutal flex items-center gap-1 sm:gap-1.5 transition-colors cursor-pointer truncate">
+              <i data-lucide="heart" class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white flex-shrink-0"></i>
+              <span id="btn-follow-label" class="truncate">Ikuti Akun</span>
+            </button>
+            <button onclick="shareProfile()" class="brutal-btn justify-center whitespace-nowrap bg-white hover:bg-neutral-50 px-2.5 sm:px-3.5 py-2 rounded-xl brutal-border font-bold text-[11px] sm:text-xs shadow-brutal flex items-center gap-1 sm:gap-1.5 cursor-pointer truncate" title="Bagikan Tautan Profil">
+              <i data-lucide="share-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-magenta flex-shrink-0"></i>
+              <span id="btn-share-profile-label" class="truncate">Bagikan</span>
+            </button>
+            <a id="btn-rednote-link" href="#" target="_blank" rel="noopener noreferrer" class="brutal-btn justify-center whitespace-nowrap bg-neutral-900 hover:bg-neutral-800 text-white px-2.5 sm:px-3.5 py-2 rounded-xl brutal-border font-bold text-[11px] sm:text-xs shadow-brutal flex items-center gap-1 sm:gap-1.5 cursor-pointer truncate" title="Kunjungi Akun Resmi">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-brutal-yellow flex-shrink-0"></i>
+              <span id="btn-rednote-link-label" class="truncate">Profil ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bio & Description -->
+        <p id="profile-bio" class="text-neutral-800 text-sm font-semibold max-w-3xl leading-relaxed mb-4 whitespace-pre-line">
+          Bio akun resmi.
+        </p>
+
+        <!-- Stats Bar Neo-Brutalism (5 Real Stats) -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3 pt-3 border-t-2 border-neutral-900 border-dashed">
+          <div class="bg-magenta-50 p-2.5 rounded-xl brutal-border text-center shadow-brutal-sm">
+            <span class="block font-display font-black text-lg sm:text-xl text-magenta" id="stat-real-followers">70.1K</span>
+            <span class="text-[10px] sm:text-[11px] font-bold text-neutral-600 uppercase">Followers Rednote</span>
+          </div>
+          <div class="bg-amber-50 p-2.5 rounded-xl brutal-border text-center shadow-brutal-sm">
+            <span class="block font-display font-black text-lg sm:text-xl text-neutral-900" id="stat-real-likes-saves">916.3K</span>
+            <span class="text-[10px] sm:text-[11px] font-bold text-neutral-600 uppercase">Likes & Saves Asli</span>
+          </div>
+          <div class="bg-neutral-50 p-2.5 rounded-xl brutal-border text-center shadow-brutal-sm">
+            <span class="block font-display font-black text-lg sm:text-xl text-neutral-900" id="stat-total-posts">0</span>
+            <span class="text-[10px] sm:text-[11px] font-bold text-neutral-600 uppercase">Total Post</span>
+          </div>
+          <div class="bg-neutral-50 p-2.5 rounded-xl brutal-border text-center shadow-brutal-sm">
+            <span class="block font-display font-black text-lg sm:text-xl text-neutral-900" id="stat-total-photos">0</span>
+            <span class="text-[10px] sm:text-[11px] font-bold text-neutral-600 uppercase">Koleksi Foto HD</span>
+          </div>
+          <div class="col-span-2 sm:col-span-1 bg-brutal-yellow p-2.5 rounded-xl brutal-border text-center shadow-brutal-sm">
+            <span class="block font-display font-black text-lg sm:text-xl text-neutral-900" id="stat-total-likes">100% HD</span>
+            <span id="stat-quality-label" class="text-[10px] sm:text-[11px] font-bold text-neutral-700 uppercase">Suka di Galeri</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROLS & FILTER BAR -->
+  <section class="max-w-6xl mx-auto w-full px-4 py-3">
+    <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 bg-white p-3.5 rounded-2xl brutal-border shadow-brutal">
+      
+      <!-- Category & Type Filter Pills (Scrollable horizontally on mobile) -->
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 -mx-1 px-1 flex-nowrap sm:flex-wrap">
+        <button onclick="setFilter('all')" id="filter-btn-all" class="filter-badge px-3.5 py-1.5 rounded-xl brutal-border text-xs font-black bg-magenta text-white shadow-brutal-sm transition-all whitespace-nowrap flex-shrink-0 cursor-pointer">
+          Semua Post
+        </button>
+        <button onclick="setFilter('multi')" id="filter-btn-multi" class="filter-badge px-3.5 py-1.5 rounded-xl brutal-border text-xs font-bold bg-white text-neutral-800 hover:bg-magenta-50 shadow-brutal-sm transition-all whitespace-nowrap flex items-center gap-1 flex-shrink-0 cursor-pointer">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-magenta"></i> <span>Multi-Foto</span>
+        </button>
+        <button onclick="setFilter('single')" id="filter-btn-single" class="filter-badge px-3.5 py-1.5 rounded-xl brutal-border text-xs font-bold bg-white text-neutral-800 hover:bg-magenta-50 shadow-brutal-sm transition-all whitespace-nowrap flex items-center gap-1 flex-shrink-0 cursor-pointer">
+          <i data-lucide="image" class="w-3.5 h-3.5 text-magenta"></i> <span>Single Photo</span>
+        </button>
+        <button onclick="setFilter('favorites')" id="filter-btn-favorites" class="filter-badge px-3.5 py-1.5 rounded-xl brutal-border text-xs font-bold bg-white text-neutral-800 hover:bg-magenta-50 shadow-brutal-sm transition-all whitespace-nowrap flex items-center gap-1 flex-shrink-0 cursor-pointer">
+          <i data-lucide="heart" class="w-3.5 h-3.5 fill-magenta text-magenta"></i> <span>Favorit</span>
+        </button>
+      </div>
+
+      <!-- Right Controls: Sort Order, Column Switcher & Search Input -->
+      <div class="flex items-center gap-2 flex-wrap justify-between lg:justify-end pt-2 lg:pt-0 border-t lg:border-t-0 border-neutral-100">
+        <!-- Sort Order Toggle -->
+        <div class="flex items-center gap-1 bg-neutral-100 p-1 rounded-xl brutal-border shadow-brutal-sm">
+          <span class="text-[10px] font-black uppercase text-neutral-500 px-1.5 flex items-center gap-1">
+            <i data-lucide="arrow-up-down" class="w-3 h-3 text-magenta"></i>
+            <span class="hidden sm:inline">Urutan:</span>
+          </span>
+          <button onclick="setSortOrder('newest')" id="btn-sort-newest" class="px-2.5 py-1 rounded-lg font-black text-xs transition-all bg-magenta text-white brutal-border shadow-brutal-sm cursor-pointer">
+            Terbaru
+          </button>
+          <button onclick="setSortOrder('oldest')" id="btn-sort-oldest" class="px-2.5 py-1 rounded-lg font-bold text-xs transition-all text-neutral-700 hover:text-black cursor-pointer">
+            Terlama
+          </button>
+        </div>
+
+        <!-- Layout Columns Toggle (Visible on Mobile, Tablet & Desktop) -->
+        <div class="flex items-center gap-1 bg-neutral-100 p-1 rounded-xl brutal-border shadow-brutal-sm">
+          <span class="text-[10px] font-black uppercase text-neutral-500 px-1.5 hidden xs:inline">Kotak:</span>
+          <button onclick="setGridColumns(1)" id="btn-col-1" class="px-2 sm:px-2.5 py-1 rounded-lg font-bold text-xs transition-all text-neutral-700 hover:text-black cursor-pointer">
+            1 Kolom
+          </button>
+          <button onclick="setGridColumns(2)" id="btn-col-2" class="px-2 sm:px-2.5 py-1 rounded-lg font-black text-xs transition-all bg-magenta text-white brutal-border shadow-brutal-sm cursor-pointer">
+            2 Kolom
+          </button>
+          <button onclick="setGridColumns(3)" id="btn-col-3" class="hidden md:inline-block px-2 sm:px-2.5 py-1 rounded-lg font-bold text-xs transition-all text-neutral-700 hover:text-black cursor-pointer">
+            3 Kolom
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-44 lg:w-48">
+          <i data-lucide="search" class="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Cari caption / tag..." class="w-full bg-neutral-50 brutal-border rounded-xl pl-9 pr-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-magenta focus:bg-white transition-all">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN FEED CONTAINER (Instagram Post Cards in 1, 2 or 3 Columns) -->
+  <main class="max-w-6xl mx-auto w-full px-2 sm:px-4 pb-20 flex-1">
+    <div id="posts-container" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
+      <!-- Dynamic Posts Rendered via js/gallery.js -->
+    </div>
+
+    <!-- Progressive Batch / Load More Controls -->
+    <div id="pagination-controls" class="hidden mt-10 text-center flex flex-col items-center justify-center gap-3">
+      <div id="posts-counter-status" class="text-xs font-bold text-neutral-600 bg-neutral-100 px-4 py-1.5 rounded-full brutal-border inline-block shadow-brutal-sm">
+        <!-- Menampilkan X dari Y postingan -->
+      </div>
+      <button id="btn-load-more" onclick="loadMorePosts()" class="brutal-btn bg-white hover:bg-magenta hover:text-white text-neutral-900 px-6 py-3 rounded-2xl brutal-border font-black text-xs sm:text-sm shadow-brutal flex items-center gap-2 transition-all cursor-pointer">
+        <i data-lucide="sparkles" class="w-4 h-4 text-magenta group-hover:text-white"></i>
+        <span id="load-more-text">Muat Lebih Banyak Foto ✨</span>
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="hidden text-center py-16 bg-white brutal-border-3 rounded-2xl shadow-brutal p-8 mt-4">
+      <div class="w-16 h-16 bg-magenta-100 rounded-full brutal-border mx-auto flex items-center justify-center text-magenta shadow-brutal-sm mb-4">
+        <i data-lucide="camera-off" class="w-8 h-8"></i>
+      </div>
+      <h3 id="i18n-empty-title" class="font-display font-extrabold text-xl text-neutral-900 mb-2">Belum Ada Photopack di Kategori Ini</h3>
+      <p id="i18n-empty-desc" class="text-neutral-600 text-sm max-w-sm mx-auto mb-6">
+        Tidak ada foto pada filter ini. Coba pilih filter "Semua Post" untuk melihat seluruh galeri!
+      </p>
+      <button onclick="setFilter('all')" class="brutal-btn bg-magenta text-white px-5 py-2.5 rounded-xl brutal-border font-bold text-sm shadow-brutal inline-flex items-center gap-2 cursor-pointer">
+        <i data-lucide="layers" class="w-4 h-4"></i> <span id="i18n-empty-reset-btn">Tampilkan Semua Foto</span>
+      </button>
+    </div>
+  </main>
+</div>

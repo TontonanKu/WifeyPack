@@ -1,0 +1,29 @@
+<!-- ======================================================== -->
+<!-- FLOATING MOBILE BOTTOM NAVIGATION BAR (md:hidden) -->
+<!-- Accessible with one thumb on all smartphones & tablets -->
+<!-- ======================================================== -->
+<nav class="fixed bottom-2.5 left-2.5 right-2.5 z-40 md:hidden max-w-md mx-auto bg-white brutal-border-3 rounded-2xl shadow-brutal-lg p-1.5 grid grid-cols-4 gap-1.5 select-none">
+  <!-- 1. Home / Akun -->
+  <button id="mobile-nav-home" onclick="backToHomeDirectory()" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-colors font-black text-[10px] bg-magenta text-white shadow-brutal-sm brutal-border cursor-pointer truncate">
+    <i data-lucide="home" class="w-4 h-4 mb-0.5 flex-shrink-0"></i>
+    <span id="m-nav-home-text" class="truncate">Akun</span>
+  </button>
+
+  <!-- 2. Galeri Foto -->
+  <button id="mobile-nav-gallery" onclick="openCurrentAccountGallery()" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-colors font-bold text-[10px] text-neutral-700 hover:text-magenta cursor-pointer truncate">
+    <i data-lucide="images" class="w-4 h-4 mb-0.5 flex-shrink-0"></i>
+    <span id="m-nav-gal-text" class="truncate">Galeri</span>
+  </button>
+
+  <!-- 3. Request Akun -->
+  <button onclick="RequestsModule.openModal('list')" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-colors font-bold text-[10px] text-neutral-700 hover:text-magenta cursor-pointer truncate">
+    <i data-lucide="clipboard-pen" class="w-4 h-4 mb-0.5 text-neutral-800 flex-shrink-0"></i>
+    <span id="m-nav-req-text" class="truncate">Request</span>
+  </button>
+
+  <!-- 4. Dukung QRIS & Hall of Fame -->
+  <button onclick="openDonateModal()" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-colors font-black text-[10px] bg-brutal-yellow text-neutral-900 brutal-border shadow-brutal-sm cursor-pointer truncate">
+    <i data-lucide="award" class="w-4 h-4 mb-0.5 text-magenta flex-shrink-0"></i>
+    <span id="m-nav-don-text" class="truncate">Dukung</span>
+  </button>
+</nav>

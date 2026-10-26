@@ -1,0 +1,22 @@
+{
+  "name": "photopack-wife",
+  "version": "1.0.0",
+  "description": "Instagram-style Neo-Brutalist Photopack Web App with Magenta & White Theme and Rednote Importer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "photopack",
+    "gallery",
+    "neo-brutalism",
+    "instagram-carousel",
+    "rednote"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "heic-convert": "^2.1.0"
+  }
+}

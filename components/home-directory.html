@@ -1,0 +1,135 @@
+<!-- ======================================================== -->
+<!-- VIEW 1: HOME / ACCOUNTS DIRECTORY VIEW (HALAMAN UTAMA) -->
+<!-- ======================================================== -->
+<div id="view-home-directory" class="w-full flex-1 flex flex-col">
+  <!-- Clean Hero Banner on Home -->
+  <section class="max-w-6xl mx-auto w-full px-4 pt-6 pb-4">
+    <div class="bg-white brutal-border-3 rounded-2xl shadow-brutal-lg overflow-hidden relative">
+      <div class="bg-gradient-to-r from-magenta via-[#ff2a85] to-magenta-dark border-b-[2.5px] border-neutral-900 relative overflow-hidden flex flex-col sm:flex-row sm:items-end justify-between p-5 sm:p-7 gap-4 text-white">
+        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#fff 1.5px, transparent 1.5px); background-size: 14px 14px;"></div>
+        
+        <div class="z-10 relative">
+          <span id="i18n-home-badge" class="bg-black/35 text-white backdrop-blur-sm brutal-border px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider inline-flex items-center gap-1.5 mb-2.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> DIREKTORI RESMI
+          </span>
+          <h1 id="i18n-home-title" class="font-display font-black text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight">
+            Koleksi Photopack My Wife ❤️
+          </h1>
+          <p id="i18n-home-desc" class="text-xs sm:text-sm font-semibold text-white/90 mt-1.5 max-w-xl leading-relaxed">
+            Pilih salah satu akun di bawah ini untuk membuka dan melihat seluruh foto photopack-nya secara lengkap!
+          </p>
+        </div>
+
+        <div class="hidden sm:flex items-center z-10 flex-shrink-0">
+          <span id="i18n-safe-mode-badge" class="bg-brutal-yellow text-neutral-900 brutal-border px-3.5 py-1.5 rounded-full text-xs font-black shadow-brutal-sm uppercase tracking-wider">
+            ★ 100% HD • NO WATERMARK
+          </span>
+        </div>
+      </div>
+
+      <!-- Clean Bottom Bar: Stats on Left, Action Button on Right -->
+      <div class="px-5 py-3.5 bg-neutral-50 flex items-center justify-between flex-wrap gap-3">
+        <div class="flex items-center gap-2 sm:gap-2.5 text-xs font-bold text-neutral-700 flex-wrap">
+          <span class="bg-white brutal-border px-3 py-1.5 rounded-xl shadow-brutal-sm flex items-center gap-1.5">
+            <i data-lucide="users" class="w-3.5 h-3.5 text-magenta"></i>
+            <strong id="home-total-accounts-count" class="text-neutral-900">2</strong>
+            <span id="i18n-stat-accounts-text">Akun Resmi</span>
+          </span>
+          <span class="bg-white brutal-border px-3 py-1.5 rounded-xl shadow-brutal-sm flex items-center gap-1.5">
+            <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-magenta"></i>
+            <strong id="home-total-posts-count" class="text-neutral-900">505</strong>
+            <span>Postingan Kurasi</span>
+          </span>
+          <span class="bg-white brutal-border px-3 py-1.5 rounded-xl shadow-brutal-sm flex items-center gap-1.5">
+            <i data-lucide="images" class="w-3.5 h-3.5 text-magenta"></i>
+            <strong id="home-total-photos-count" class="text-neutral-900">3300+</strong>
+            <span id="i18n-stat-photos-text">Foto HD Tersimpan</span>
+          </span>
+          <span class="bg-brutal-yellow/60 brutal-border px-3 py-1.5 rounded-xl shadow-brutal-sm hidden md:flex items-center gap-1.5 text-neutral-900">
+            <i data-lucide="flame" class="w-3.5 h-3.5 text-magenta"></i>
+            <strong>2.1M+</strong>
+            <span>Likes & Saves Rednote</span>
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <button onclick="RequestsModule.openModal('submit')" class="brutal-btn flex-1 sm:flex-none justify-center bg-white hover:bg-magenta-50 text-neutral-900 px-4 py-2 rounded-xl brutal-border font-bold text-xs shadow-brutal-sm flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-magenta"></i>
+            <span>Request / Lapor</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Account Directory Grid & Search Header -->
+  <section class="max-w-6xl mx-auto w-full px-4 pb-20">
+    <div class="mb-5 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white p-3.5 sm:p-4 rounded-2xl brutal-border shadow-brutal">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+        <h2 class="font-display font-black text-xl text-neutral-900 flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-5 h-5 text-magenta"></i>
+          <span id="i18n-home-select-title">Pilih Akun yang Ingin Dilihat:</span>
+        </h2>
+      </div>
+
+      <!-- Account Search Input (Find by Name, @username, or ID) -->
+      <div class="relative w-full md:w-64">
+        <i data-lucide="search" class="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input type="text" id="account-search-input" oninput="handleAccountSearch(this.value)" placeholder="Cari nama, @username, atau ID..." class="w-full bg-neutral-50 brutal-border rounded-xl pl-9 pr-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-magenta focus:bg-white transition-all">
+      </div>
+    </div>
+
+    <!-- Accounts Cards Container (2 Balanced Columns for Ziezie & Hannayeah) -->
+    <div id="accounts-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      <!-- Rendered dynamically by js/directory.js -->
+    </div>
+
+    <!-- Account Empty Search State -->
+    <div id="account-search-empty" class="hidden text-center py-12 bg-white brutal-border-3 rounded-2xl shadow-brutal p-6 mt-4">
+      <div class="w-14 h-14 bg-magenta-100 rounded-full brutal-border mx-auto flex items-center justify-center text-magenta shadow-brutal-sm mb-3">
+        <i data-lucide="user-x" class="w-7 h-7"></i>
+      </div>
+      <h3 class="font-display font-black text-lg text-neutral-900 mb-1" id="i18n-acc-empty-title">Akun Tidak Ditemukan</h3>
+      <p class="text-xs font-semibold text-neutral-500 max-w-sm mx-auto" id="i18n-acc-empty-desc">
+        Tidak ada akun yang cocok dengan kata kunci pencarian. Coba cari dengan kata kunci lain seperti "ziezie" atau "hannayeah".
+      </p>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- SUPPORTER HALL OF FAME & OFFICIAL INVOICE SHOWCASE -->
+    <!-- ======================================================== -->
+    <div class="mt-8 bg-white brutal-border-3 rounded-2xl shadow-brutal-lg overflow-hidden">
+      <div class="bg-neutral-900 text-white px-4 sm:px-6 py-4 border-b-2 border-neutral-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-brutal-yellow text-neutral-900 brutal-border flex items-center justify-center shadow-brutal-sm flex-shrink-0">
+            <i data-lucide="trophy" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="font-display font-black text-base sm:text-lg text-white">Papan Penghargaan Supporter (Hall of Fame)</h3>
+              <span class="bg-magenta text-white px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider">Verified Invoices</span>
+            </div>
+            <p class="text-[11px] font-semibold text-neutral-300 mt-0.5">
+              Apresiasi resmi untuk para donatur pendukung server penyimpanan HD Wifey Photopack. Klik kartu untuk melihat Struk Resmi!
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <button onclick="openDonateModal('wall')" class="brutal-btn bg-brutal-yellow hover:bg-yellow-300 text-neutral-900 px-3.5 py-2 rounded-xl brutal-border font-black text-xs shadow-brutal-sm flex items-center gap-1.5 cursor-pointer whitespace-nowrap">
+            <i data-lucide="trophy" class="w-3.5 h-3.5 text-magenta"></i>
+            <span>Lihat Hall of Fame</span>
+          </button>
+          <button onclick="openDonateModal('qris')" class="brutal-btn bg-magenta hover:bg-magenta-600 text-white px-3.5 py-2 rounded-xl brutal-border font-black text-xs shadow-brutal-sm flex items-center gap-1.5 cursor-pointer whitespace-nowrap">
+            <i data-lucide="qr-code" class="w-3.5 h-3.5"></i>
+            <span>Dukung QRIS</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="home-supporters-grid" class="p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 bg-neutral-50/70">
+        <!-- Rendered dynamically by js/modals.js -->
+      </div>
+    </div>
+  </section>
+</div>
